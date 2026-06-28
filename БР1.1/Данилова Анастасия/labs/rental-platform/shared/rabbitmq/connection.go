@@ -11,7 +11,6 @@ func Connect(url string) (*amqp.Connection, error) {
 	return ConnectWithRetry(url, 1, 0)
 }
 
-// ConnectWithRetry waits for RabbitMQ to accept AMQP (broker may be "healthy" before port is open).
 func ConnectWithRetry(url string, attempts int, delay time.Duration) (*amqp.Connection, error) {
 	if url == "" {
 		return nil, fmt.Errorf("rabbitmq url is empty")
